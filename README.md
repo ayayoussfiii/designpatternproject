@@ -1,5 +1,5 @@
 # designpatternproject
-Le projet Tetris Galaxy Dream, une implémentation moderne du jeu classique Tetris développée dans le cadre du module Design Patterns
+ Tetris Galaxy Dream, une implémentation moderne du jeu classique Tetris développée dans le cadre du module Design Patterns
 Le projet adopte une architecture modulaire organisée en six packages principaux (core, composite, decorators, states, factory, utils),
 chacun ayant un rôle spécifique dans la structure globale. L’interface graphique
 est réalisée avec JavaFX et propose une expérience utilisateur enrichie avec des
