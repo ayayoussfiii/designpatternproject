@@ -77,7 +77,7 @@ MenuState ──► PlayingState ──► PausedState
                     └──► GameOverState
 ```
 
-#### 👁️ Observer Pattern — `core/`
+####  Observer Pattern — `core/`
 > Le tableau de jeu notifie automatiquement l'interface graphique à chaque changement d'état.
 
 #### 🔁 Singleton Pattern — `utils/`
