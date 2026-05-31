@@ -51,7 +51,7 @@ src/
 
 ###  Patterns implémentés
 
-#### 🏭 Factory Pattern — `factory/`
+####  Factory Pattern — `factory/`
 > Délègue la création des pièces Tetromino à une factory dédiée, sans exposer la logique d'instanciation.
 
 ```java
