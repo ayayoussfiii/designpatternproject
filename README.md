@@ -180,7 +180,7 @@ designpatternproject/
 
 ---
 
-## 👩‍💻 Auteure
+## Auteure
 
 <div align="center">
 
