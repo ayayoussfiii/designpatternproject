@@ -14,7 +14,7 @@
 
 ---
 
-## ✨ Aperçu
+##  Aperçu
 
 **Tetris Galaxy Dream** est une implémentation moderne du jeu classique Tetris, développée dans le cadre du module **Design Patterns**. Le projet démontre comment des patterns architecturaux bien appliqués permettent de construire un code **maintenable**, **extensible** et conforme aux **principes SOLID**.
 
