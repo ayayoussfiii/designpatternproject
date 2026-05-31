@@ -35,7 +35,7 @@ L'interface graphique, réalisée avec **JavaFX**, propose une expérience immer
 
 ---
 
-## 🏗️ Architecture & Design Patterns
+##  Architecture & Design Patterns
 
 Le projet est organisé en **6 packages principaux**, chacun encapsulant un pattern spécifique :
 
