@@ -131,7 +131,7 @@ gradle run
 
 ---
 
-## 📁 Structure détaillée
+##  Structure détaillée
 
 ```
 designpatternproject/
