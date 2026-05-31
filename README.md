@@ -58,7 +58,7 @@ src/
 Tetromino piece = TetrominoFactory.create(TetrominoType.T_SHAPE);
 ```
 
-#### 🎭 Decorator Pattern — `decorators/`
+####  Decorator Pattern — `decorators/`
 > Ajoute dynamiquement des comportements aux blocs (effets visuels, comportements spéciaux) sans modifier les classes de base.
 
 ```java
