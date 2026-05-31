@@ -22,7 +22,7 @@ L'interface graphique, réalisée avec **JavaFX**, propose une expérience immer
 
 ---
 
-## 🎮 Fonctionnalités
+##  Fonctionnalités
 
 | Fonctionnalité | Description |
 |---|---|
