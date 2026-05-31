@@ -65,10 +65,10 @@ Tetromino piece = TetrominoFactory.create(TetrominoType.T_SHAPE);
 Tetromino special = new ExplosiveDecorator(new GlowDecorator(basePiece));
 ```
 
-#### 🌳 Composite Pattern — `composite/`
+####  Composite Pattern — `composite/`
 > Traite les pièces simples et composées de manière uniforme — une pièce est une composition de blocs individuels.
 
-#### 🔄 State Pattern — `states/`
+####  State Pattern — `states/`
 > Chaque état du jeu (Menu, Playing, Paused, GameOver) est une classe indépendante avec ses propres transitions et comportements.
 
 ```
