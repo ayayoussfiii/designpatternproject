@@ -168,7 +168,7 @@ designpatternproject/
 
 ---
 
-## 🎓 Contexte académique
+##  Contexte académique
 
 > Projet réalisé dans le cadre du module **Design Patterns** — Cycle Ingénieur, spécialité IA & Confiance Numérique, **ENSA Fès**.
 
