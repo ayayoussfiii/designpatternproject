@@ -49,7 +49,7 @@ Développé dans le cadre du module **Design Patterns** (Cycle Ingénieur, IA & 
 
 ---
 
-## 🏗️ Architecture & Design Patterns
+##  Architecture & Design Patterns
 
 ### Structure des packages
 
