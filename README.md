@@ -65,7 +65,7 @@ src/main/java/
 
 ---
 
-### 🏭 Factory Pattern — `factory/`
+###  Factory Pattern — `factory/`
 
 Découple la création des pièces Tetromino du reste de la logique. Le client ne connaît pas les classes concrètes — il demande un type, la factory s'occupe du reste.
 
