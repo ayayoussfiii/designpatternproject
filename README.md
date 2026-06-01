@@ -22,7 +22,7 @@
 
 ---
 
-## 📖 Présentation
+##  Présentation
 
 **Tetris Galaxy Dream** est une implémentation complète du jeu classique Tetris, repensée avec un thème visuel immersif *Galaxy Dream* et une architecture logicielle rigoureuse.
 
