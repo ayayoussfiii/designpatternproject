@@ -149,7 +149,7 @@ board.notifyObservers(); // appelé après chaque tick
 
 ---
 
-### 🔒 Singleton Pattern — `utils/`
+###  Singleton Pattern — `utils/`
 
 `ScoreManager` et `GameConfig` sont des instances uniques partagées. L'accès au score depuis n'importe quel composant est garanti cohérent.
 
