@@ -279,5 +279,5 @@ ENSA Fès · 2024–2026
 ---
 
 <div align="center">
-<sub>✨  · Galaxy Dream Edition · ENSA Fès 2025 ✨</sub>
+<sub>✨ Galaxy Dream Edition · ENSA Fès 2025 ✨</sub>
 </div>
