@@ -98,7 +98,7 @@ Tetromino special = new ExplosiveDecorator(
 
 ---
 
-### 🧩 Composite Pattern — `composite/`
+###  Composite Pattern — `composite/`
 
 Traite les blocs simples (`SingleBlock`) et les pièces composées (`CompositeBlock`) de façon uniforme via l'interface `BlockComponent`. La logique de rendu et de collision n'a pas besoin de distinguer les deux.
 
