@@ -41,7 +41,7 @@ Développé dans le cadre du module **Design Patterns** (Cycle Ingénieur, IA & 
 | Fonctionnalité | Description |
 |---|---|
 |  **Ghost Piece** | Projection semi-transparente de la position de chute pour aider le joueur |
-| 🔮 **Blocs Spéciaux** | Pièces décorées avec des comportements uniques (explosion, glow...) |
+|  **Blocs Spéciaux** | Pièces décorées avec des comportements uniques (explosion, glow...) |
 | 🌌 **Thème Galaxy Dream** | Effets visuels CSS custom, palette spatiale, animations fluides |
 | 🎯 **Score & Niveaux** | Progression dynamique avec accélération de la difficulté |
 | ⏸️ **Gestion d'états** | Transitions fluides entre Menu, Playing, Paused et Game Over |
