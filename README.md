@@ -268,7 +268,7 @@ Ce projet a été réalisé dans le cadre du module **Design Patterns** du Cycle
 <div align="center">
 
 **Aya YOUSSFI**
-Étudiante Ingénieure — IA & Confiance Numérique
+ — IA & Confiance Numérique
 ENSA Fès · 2024–2026
 
 [![GitHub](https://img.shields.io/badge/GitHub-ayayoussfiii-181717?style=flat-square&logo=github)](https://github.com/ayayoussfiii)
