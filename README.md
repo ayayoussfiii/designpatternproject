@@ -112,7 +112,7 @@ BlockComponent (interface)
 
 ---
 
-### 🔄 State Pattern — `states/`
+###  State Pattern — `states/`
 
 Chaque état du jeu est une classe autonome implémentant l'interface `GameState`. Le contexte (`GameLoop`) délègue le comportement à l'état courant — aucun `if/switch` géant.
 
