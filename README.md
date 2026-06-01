@@ -134,7 +134,7 @@ gameContext.handleInput(KeyCode.P); // → transition vers PausedState
 
 ---
 
-### 👁️ Observer Pattern — `core/`
+###  Observer Pattern — `core/`
 
 Le `GameBoard` (sujet observable) notifie automatiquement les composants d'interface graphique (`GameRenderer`, `ScoreDisplay`) à chaque changement d'état. Aucun couplage direct entre la logique et l'UI.
 
