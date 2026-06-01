@@ -174,7 +174,7 @@ int best = ScoreManager.getInstance().getHighScore();
 
 ---
 
-## 🚀 Installation & Lancement
+##  Installation & Lancement
 
 ### Prérequis
 
