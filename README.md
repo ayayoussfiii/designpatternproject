@@ -2,119 +2,197 @@
 
 # 🌌 Tetris Galaxy Dream
 
-**Une réimagination moderne et galactique du Tetris classique**  
-*Projet académique — Module Design Patterns*
+**Une réimagination moderne et galactique du Tetris classique**
+
+*Projet académique — Module Design Patterns · ENSA Fès · 2025*
+
+<br>
 
 ![Java](https://img.shields.io/badge/Java-17+-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![JavaFX](https://img.shields.io/badge/JavaFX-17+-blue?style=for-the-badge&logo=java&logoColor=white)
-![Design Patterns](https://img.shields.io/badge/Design%20Patterns-6%20patterns-purple?style=for-the-badge)
-![SOLID](https://img.shields.io/badge/Architecture-SOLID-green?style=for-the-badge)
+![JavaFX](https://img.shields.io/badge/JavaFX-17+-4A90D9?style=for-the-badge&logo=java&logoColor=white)
+![Patterns](https://img.shields.io/badge/Design%20Patterns-6%20GoF-8A2BE2?style=for-the-badge)
+![SOLID](https://img.shields.io/badge/Architecture-SOLID-27AE60?style=for-the-badge)
+![License](https://img.shields.io/badge/License-Academic-lightgrey?style=for-the-badge)
+
+<br>
+
+> *Un Tetris qui n'est pas qu'un jeu — c'est une démonstration vivante de l'ingénierie logicielle.*
 
 </div>
 
 ---
 
-##  Aperçu
+## 📖 Présentation
 
-**Tetris Galaxy Dream** est une implémentation moderne du jeu classique Tetris, développée dans le cadre du module **Design Patterns**. Le projet démontre comment des patterns architecturaux bien appliqués permettent de construire un code **maintenable**, **extensible** et conforme aux **principes SOLID**.
+**Tetris Galaxy Dream** est une implémentation complète du jeu classique Tetris, repensée avec un thème visuel immersif *Galaxy Dream* et une architecture logicielle rigoureuse.
 
-L'interface graphique, réalisée avec **JavaFX**, propose une expérience immersive avec un thème *Galaxy Dream* : effets visuels, blocs spéciaux, ghost piece et bien plus.
+Développé dans le cadre du module **Design Patterns** (Cycle Ingénieur, IA & Confiance Numérique — ENSA Fès), ce projet illustre comment les **patterns du Gang of Four (GoF)** et les **principes SOLID** permettent de construire un code modulaire, extensible et maintenable — en partant d'un problème concret et ludique.
+
+**Ce que vous trouverez ici :**
+- 6 design patterns GoF appliqués avec intention, pas mécaniquement
+- Une interface graphique JavaFX avec ghost piece, blocs spéciaux et effets visuels
+- Une architecture en packages bien séparés, testable et évolutive
+- Une application complète des principes SOLID, justifiée cas par cas
 
 ---
 
-##  Fonctionnalités
+## ✨ Fonctionnalités
 
 | Fonctionnalité | Description |
 |---|---|
-| 👻 **Ghost Piece** | Aperçu de la position de chute de la pièce |
-| 🔮 **Blocs Spéciaux** | Pièces avec comportements uniques |
-| 🌌 **Thème Galaxy Dream** | Interface visuelle immersive avec effets modernes |
-| 🎯 **Score & Niveaux** | Système de progression avec difficulté croissante |
-| ⏸️ **Gestion des états** | Pause, Game Over, Menu — transitions fluides |
-| 🧱 **Architecture modulaire** | 6 packages bien séparés et extensibles |
+| 👻 **Ghost Piece** | Projection semi-transparente de la position de chute pour aider le joueur |
+| 🔮 **Blocs Spéciaux** | Pièces décorées avec des comportements uniques (explosion, glow...) |
+| 🌌 **Thème Galaxy Dream** | Effets visuels CSS custom, palette spatiale, animations fluides |
+| 🎯 **Score & Niveaux** | Progression dynamique avec accélération de la difficulté |
+| ⏸️ **Gestion d'états** | Transitions fluides entre Menu, Playing, Paused et Game Over |
+| 🧱 **Architecture modulaire** | 6 packages indépendants, chacun encapsulant un pattern distinct |
 
 ---
 
-##  Architecture & Design Patterns
+## 🏗️ Architecture & Design Patterns
 
-Le projet est organisé en **6 packages principaux**, chacun encapsulant un pattern spécifique :
+### Structure des packages
 
 ```
-src/
-├── 📦 core/          → Logique centrale du jeu (Board, Tetromino, GameLoop)
-├── 📦 composite/     → Pattern Composite — composition des pièces
-├── 📦 decorators/    → Pattern Decorator — blocs spéciaux & effets visuels
-├── 📦 states/        → Pattern State — gestion des états (Menu, Play, Pause, GameOver)
-├── 📦 factory/       → Pattern Factory — génération des pièces
-└── 📦 utils/         → Utilitaires partagés (constantes, helpers)
+src/main/java/
+├── core/           → Logique centrale : GameBoard, GameLoop, Tetromino, GhostPiece
+├── composite/      → Pattern Composite — composition hiérarchique des blocs
+├── decorators/     → Pattern Decorator — comportements spéciaux à la volée
+├── states/         → Pattern State — machine à états du jeu
+├── factory/        → Pattern Factory — génération découplée des pièces
+└── utils/          → Utilitaires partagés : constantes, ScoreManager (Singleton)
 ```
 
-###  Patterns implémentés
+---
 
-####  Factory Pattern — `factory/`
-> Délègue la création des pièces Tetromino à une factory dédiée, sans exposer la logique d'instanciation.
+### 🏭 Factory Pattern — `factory/`
+
+Découple la création des pièces Tetromino du reste de la logique. Le client ne connaît pas les classes concrètes — il demande un type, la factory s'occupe du reste.
 
 ```java
+// Avant : couplage fort, création manuelle partout
+Tetromino piece = new TShape(x, y, color);
+
+// Après : création centralisée et découplée
 Tetromino piece = TetrominoFactory.create(TetrominoType.T_SHAPE);
 ```
 
-####  Decorator Pattern — `decorators/`
-> Ajoute dynamiquement des comportements aux blocs (effets visuels, comportements spéciaux) sans modifier les classes de base.
+**Bénéfice :** Ajouter une nouvelle pièce ne nécessite qu'une entrée dans l'enum `TetrominoType` et sa factory — aucune modification du code client.
+
+---
+
+### 🎨 Decorator Pattern — `decorators/`
+
+Ajoute des comportements aux blocs (effets visuels, explosions) sans modifier les classes de base ni utiliser l'héritage. Les décorateurs s'empilent librement.
 
 ```java
-Tetromino special = new ExplosiveDecorator(new GlowDecorator(basePiece));
+// Empilement de comportements à l'exécution
+Tetromino special = new ExplosiveDecorator(
+                        new GlowDecorator(
+                            TetrominoFactory.create(TetrominoType.L_SHAPE)
+                        )
+                    );
 ```
 
-####  Composite Pattern — `composite/`
-> Traite les pièces simples et composées de manière uniforme — une pièce est une composition de blocs individuels.
-
-####  State Pattern — `states/`
-> Chaque état du jeu (Menu, Playing, Paused, GameOver) est une classe indépendante avec ses propres transitions et comportements.
-
-```
-MenuState ──► PlayingState ──► PausedState
-                    │
-                    └──► GameOverState
-```
-
-####  Observer Pattern — `core/`
-> Le tableau de jeu notifie automatiquement l'interface graphique à chaque changement d'état.
-
-#### 🔁 Singleton Pattern — `utils/`
-> Le gestionnaire de configuration et le score manager sont des instances uniques partagées.
+**Bénéfice :** Chaque comportement est isolé, testable séparément, et combinable sans explosion combinatoire de sous-classes.
 
 ---
 
-## 🧩 Principes SOLID respectés
+### 🧩 Composite Pattern — `composite/`
 
-| Principe | Application dans le projet |
+Traite les blocs simples (`SingleBlock`) et les pièces composées (`CompositeBlock`) de façon uniforme via l'interface `BlockComponent`. La logique de rendu et de collision n'a pas besoin de distinguer les deux.
+
+```
+BlockComponent (interface)
+├── SingleBlock      → un carré unitaire
+└── CompositeBlock   → une pièce = collection de SingleBlocks
+```
+
+**Bénéfice :** La récursivité structurelle permet d'introduire des pièces complexes (multi-blocs, formes non standard) sans toucher au moteur de jeu.
+
+---
+
+### 🔄 State Pattern — `states/`
+
+Chaque état du jeu est une classe autonome implémentant l'interface `GameState`. Le contexte (`GameLoop`) délègue le comportement à l'état courant — aucun `if/switch` géant.
+
+```
+MenuState
+    │
+    └──► PlayingState ◄──► PausedState
+              │
+              └──► GameOverState ──► MenuState
+```
+
+```java
+// Le contexte ne sait pas dans quel état il est — il délègue
+gameContext.setState(new PlayingState(gameContext));
+gameContext.handleInput(KeyCode.P); // → transition vers PausedState
+```
+
+**Bénéfice :** Ajouter un état (ex. `HighScoreState`) = créer une classe, pas modifier les existantes.
+
+---
+
+### 👁️ Observer Pattern — `core/`
+
+Le `GameBoard` (sujet observable) notifie automatiquement les composants d'interface graphique (`GameRenderer`, `ScoreDisplay`) à chaque changement d'état. Aucun couplage direct entre la logique et l'UI.
+
+```java
+// Le Board publie — il ne sait pas qui écoute
+board.addObserver(renderer);
+board.addObserver(scoreDisplay);
+board.notifyObservers(); // appelé après chaque tick
+```
+
+**Bénéfice :** La logique de jeu reste testable sans JavaFX. L'UI peut être remplacée entièrement sans toucher au core.
+
+---
+
+### 🔒 Singleton Pattern — `utils/`
+
+`ScoreManager` et `GameConfig` sont des instances uniques partagées. L'accès au score depuis n'importe quel composant est garanti cohérent.
+
+```java
+ScoreManager.getInstance().addPoints(400); // lignes × niveau
+int best = ScoreManager.getInstance().getHighScore();
+```
+
+**Bénéfice :** Évite les désynchronisations entre plusieurs instances — le score est une vérité unique.
+
+---
+
+## ✅ Principes SOLID
+
+| Principe | Application concrète dans ce projet |
 |---|---|
-| **S** — Single Responsibility | Chaque classe a un rôle unique (Board, Renderer, ScoreManager...) |
-| **O** — Open/Closed | Les blocs sont extensibles via Decorator sans modifier le code existant |
-| **L** — Liskov Substitution | Tout Tetromino peut être remplacé par un décorateur sans casser le jeu |
-| **I** — Interface Segregation | Interfaces fines et ciblées (Renderable, Movable, Scorable...) |
-| **D** — Dependency Inversion | Le core dépend d'abstractions, pas d'implémentations concrètes |
+| **S** — Single Responsibility | `GameBoard` gère la grille ; `ScoreManager` gère les points ; `GameRenderer` gère l'affichage. Chaque classe a une seule raison de changer. |
+| **O** — Open/Closed | Les blocs sont étendus par Decorator sans modifier `Tetromino`. Nouveaux effets = nouvelles classes uniquement. |
+| **L** — Liskov Substitution | Tout `BlockComponent` (simple ou composite) est interchangeable. Tout `Tetromino` décoré se comporte comme l'original. |
+| **I** — Interface Segregation | `Renderable`, `Movable`, `Scorable` — interfaces fines. Les classes implémentent ce dont elles ont besoin, pas plus. |
+| **D** — Dependency Inversion | `GameLoop` dépend de `GameState` (abstraction), pas de `PlayingState`. Le core dépend d'interfaces, jamais d'implémentations. |
 
 ---
 
-## 🚀 Lancement du projet
+## 🚀 Installation & Lancement
 
 ### Prérequis
+
 - Java **17+**
 - JavaFX **17+**
-- Maven ou Gradle
+- Maven **3.8+** ou Gradle **7+**
 
-### Installation
+### Cloner et lancer
 
 ```bash
-# Cloner le dépôt
+# 1. Cloner le dépôt
 git clone https://github.com/ayayoussfiii/designpatternproject.git
 cd designpatternproject
 
-# Compiler et lancer avec Maven
+# 2a. Avec Maven
 mvn clean javafx:run
 
-# Ou avec Gradle
+# 2b. Avec Gradle
 gradle run
 ```
 
@@ -122,74 +200,79 @@ gradle run
 
 | Touche | Action |
 |---|---|
-| `←` `→` | Déplacer la pièce |
-| `↓` | Descente rapide (soft drop) |
+| `←` `→` | Déplacer la pièce horizontalement |
+| `↓` | Descente accélérée (soft drop) |
 | `↑` ou `Z` | Rotation |
 | `Espace` | Chute instantanée (hard drop) |
-| `P` | Pause |
-| `Échap` | Menu principal |
+| `P` | Pause / Reprendre |
+| `Échap` | Retour au menu principal |
 
 ---
 
-##  Structure détaillée
+## 📁 Structure complète du projet
 
 ```
 designpatternproject/
-├── src/main/java/
-│   ├── core/
-│   │   ├── GameBoard.java
-│   │   ├── GameLoop.java
-│   │   ├── Tetromino.java
-│   │   └── GhostPiece.java
-│   ├── composite/
-│   │   ├── BlockComponent.java
-│   │   ├── SingleBlock.java
-│   │   └── CompositeBlock.java
-│   ├── decorators/
-│   │   ├── TetrominoDecorator.java
-│   │   ├── GlowDecorator.java
-│   │   └── ExplosiveDecorator.java
-│   ├── states/
-│   │   ├── GameState.java (interface)
-│   │   ├── MenuState.java
-│   │   ├── PlayingState.java
-│   │   ├── PausedState.java
-│   │   └── GameOverState.java
-│   ├── factory/
-│   │   ├── TetrominoFactory.java
-│   │   └── TetrominoType.java
-│   └── utils/
-│       ├── Constants.java
-│       └── ScoreManager.java
-└── src/main/resources/
-    ├── styles/galaxy-theme.css
-    └── assets/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   ├── core/
+│       │   │   ├── GameBoard.java          → Grille, détection collisions, suppression lignes
+│       │   │   ├── GameLoop.java           → Boucle principale, gestion du temps
+│       │   │   ├── Tetromino.java          → Pièce abstraite de base
+│       │   │   └── GhostPiece.java         → Calcul et rendu de la projection
+│       │   ├── composite/
+│       │   │   ├── BlockComponent.java     → Interface commune (Composite Pattern)
+│       │   │   ├── SingleBlock.java        → Bloc unitaire
+│       │   │   └── CompositeBlock.java     → Assemblage de blocs
+│       │   ├── decorators/
+│       │   │   ├── TetrominoDecorator.java → Décorateur abstrait de base
+│       │   │   ├── GlowDecorator.java      → Effet lumineux
+│       │   │   └── ExplosiveDecorator.java → Comportement explosif
+│       │   ├── states/
+│       │   │   ├── GameState.java          → Interface État
+│       │   │   ├── MenuState.java
+│       │   │   ├── PlayingState.java
+│       │   │   ├── PausedState.java
+│       │   │   └── GameOverState.java
+│       │   ├── factory/
+│       │   │   ├── TetrominoFactory.java   → Création centralisée des pièces
+│       │   │   └── TetrominoType.java      → Enum des types disponibles
+│       │   └── utils/
+│       │       ├── Constants.java          → Dimensions grille, vitesses, couleurs
+│       │       └── ScoreManager.java       → Singleton — gestion du score et high score
+│       └── resources/
+│           ├── styles/
+│           │   └── galaxy-theme.css        → Thème visuel Galaxy Dream
+│           └── assets/                     → Images, sons, sprites
+├── pom.xml
+└── README.md
 ```
 
 ---
 
-##  Contexte académique
+## 🎓 Contexte académique
 
-> Projet réalisé dans le cadre du module **Design Patterns** — Cycle Ingénieur, spécialité IA & Confiance Numérique, **ENSA Fès**.
+Ce projet a été réalisé dans le cadre du module **Design Patterns** du Cycle Ingénieur, spécialité **IA & Confiance Numérique**, à l'**ENSA Fès** (2024–2025).
 
 **Objectifs pédagogiques :**
-- Maîtriser les patterns GoF (Gang of Four)
-- Concevoir une architecture logicielle robuste
-- Appliquer les principes SOLID en pratique
+- Maîtriser les patterns GoF (Gang of Four) et comprendre *pourquoi* les utiliser, pas seulement *comment*
+- Concevoir une architecture logicielle robuste face au changement
+- Appliquer les principes SOLID sur un projet concret et non trivial
 - Développer une application GUI complète avec JavaFX
 
 ---
 
-## Auteure
+## 👩‍💻 Auteure
 
 <div align="center">
 
-**Aya YOUSSFI**  
-Étudiante Ingénieure — IA & Confiance Numérique  
-ENSA Fès · 2024–Present
+**Aya YOUSSFI**
+Étudiante Ingénieure — IA & Confiance Numérique
+ENSA Fès · 2024–2026
 
-[![GitHub](https://img.shields.io/badge/GitHub-ayayoussfiii-black?style=flat-square&logo=github)](https://github.com/ayayoussfiii)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-aya--youssfi-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/aya-youssfi)
+[![GitHub](https://img.shields.io/badge/GitHub-ayayoussfiii-181717?style=flat-square&logo=github)](https://github.com/ayayoussfiii)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-aya--youssfi-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/aya-youssfi)
 
 </div>
 
