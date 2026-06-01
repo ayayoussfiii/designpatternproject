@@ -263,7 +263,7 @@ Ce projet a été réalisé dans le cadre du module **Design Patterns** du Cycle
 
 ---
 
-## 👩‍💻 Auteure
+## Auteure
 
 <div align="center">
 
