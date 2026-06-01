@@ -36,7 +36,7 @@ Développé dans le cadre du module **Design Patterns** (Cycle Ingénieur, IA & 
 
 ---
 
-## ✨ Fonctionnalités
+##  Fonctionnalités
 
 | Fonctionnalité | Description |
 |---|---|
