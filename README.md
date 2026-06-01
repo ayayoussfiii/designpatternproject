@@ -81,7 +81,7 @@ Tetromino piece = TetrominoFactory.create(TetrominoType.T_SHAPE);
 
 ---
 
-### 🎨 Decorator Pattern — `decorators/`
+###  Decorator Pattern — `decorators/`
 
 Ajoute des comportements aux blocs (effets visuels, explosions) sans modifier les classes de base ni utiliser l'héritage. Les décorateurs s'empilent librement.
 
