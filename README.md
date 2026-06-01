@@ -162,7 +162,7 @@ int best = ScoreManager.getInstance().getHighScore();
 
 ---
 
-## ✅ Principes SOLID
+##  Principes SOLID
 
 | Principe | Application concrète dans ce projet |
 |---|---|
